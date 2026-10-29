@@ -9,11 +9,14 @@ import { About } from './about';
 import { Contact } from './contact';
 import { inter, instrumentSerif } from './fonts';
 import { Hero, Navbar } from './hero';
+import { LoadingScreen } from './loading-screen';
 import { SelectedWorks } from './selected-works';
 import { Stats } from './stats';
 import { PORTFOLIO_STYLES } from './styles';
 
 const Portfolio = () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+
   return (
     <div
       data-slot="portfolio"
@@ -24,6 +27,8 @@ const Portfolio = () => {
       )}
     >
       <style dangerouslySetInnerHTML={{ __html: PORTFOLIO_STYLES }} />
+
+      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
 
       <MotionConfig reducedMotion="user">
         <Navbar />
