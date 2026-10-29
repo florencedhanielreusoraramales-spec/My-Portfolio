@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollReveal({
   children,
-  scrollContainerRef,
+  scrollContainerRef = null,
   enableBlur = true,
   baseOpacity = 0.12,
   baseRotation = 2,
